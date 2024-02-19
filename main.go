@@ -505,7 +505,8 @@ func typeDisplayName(t *types.Type, c generatorConfig, typePkgMap map[*types.Typ
 		}
 		klog.Fatalf("type %s is a non-const declaration, which is unhandled", t.Name)
 	default:
-		klog.Fatalf("type %s has kind=%v which is unhandled", t.Name, t.Kind)
+		// Unknown just report the name.
+		return t.Name.Name
 	}
 
 	// substitute prefix, if registered
